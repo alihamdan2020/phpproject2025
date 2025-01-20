@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 10px;
+    border-bottom: 5px solid rgb(0, 120, 240);
+    padding-inline: 20px;
+    background-color: rgb(0, 100, 200)
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+}
+
+/* sign in form */
+.formSignIn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.formSignIn form {
+    width: 300px;
+    background-color: rgba(0, 100, 200, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-block: 20px;
+
+}
+
+form h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.danger {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px
+}
+
+.inputsGroup {
+    margin-block: 10px;
+    border: 0px solid green;
+    width: 250px;
+}
+
+
+
+.inputsGroup label {
+    display: block;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inputsGroup input,
+.inputsGroup select {
+    padding: 5px;
+    outline: 0;
+    border-radius: 5px;
+    width: 100%
+}
+
+form button {
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(0, 100, 200);
+    border: 1px solid white;
+    outline: none;
+    margin-top: 20px;
+    cursor: pointer
+}
+
+.container {
+    width: 90vw;
+    margin: 20px auto;
+    ;
+}
+
+.cardHolder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-block: 10px;
+}
+
+.card {
+    width: 250px;
+    border: 1px solid green;
+    padding: 10px;
+    min-height: 250px;
+}
+.card p:nth-child(5), 
+.card p:nth-child(2) {
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  
+}
+
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.pages{
+    list-style: none;
+    display: flex;
+    gap:10px
+}
+
+.pages li a{
+    color:blue;
+    width:30px;
+    height:30px;
+    background-color: aqua;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
