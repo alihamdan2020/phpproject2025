@@ -28,7 +28,9 @@ header("location:index.php");
             $CountOfRows=mysqli_num_rows(mysqli_query($con,$sqlAllProducts));
 
             $perPage=ceil($CountOfRows/10);
-
+			
+			// print_r(json_encode(mysqli_fetch_all(mysqli_query($con,$sqlAllProducts))));	
+			
             while ($r = mysqli_fetch_assoc($result)) { ?>
                 <div class="card">
                  <p style="background-color: rgb(0,60,120)"><a href="#">Product # <?php echo $r['ProductID'] ?></a></p>
