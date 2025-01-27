@@ -40,11 +40,12 @@ $r=mysqli_query($con,$sql);
             
             <div style="text-align: center;">
                 <button>submit</button>
-                <div style="margin-top:10px">
-                    <a href="signup.php">You dot have an account ?</a>
-                </div>
             </div>
         </form>
     </div>
+    <?php 
+    unset($_SESSION['msg']); 
+    unset($_SESSION['user']); 
+    ?>
 </body>
 </html>

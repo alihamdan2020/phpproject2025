@@ -31,5 +31,9 @@
             </div>
         </form>
     </div>
+    <?php 
+    unset($_SESSION['msg']);
+    unset($_SESSION['user']);
+    ?>
 </body>
 </html>
