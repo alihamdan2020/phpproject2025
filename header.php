@@ -17,6 +17,7 @@
         { ?>
         <a href="logout.php">logout</a>
         <a href="customers.php">customers</a>
+        <a href="teststripe.php">test stripe</a>
         <?php
         } else
         { ?><a href="login.php">log in</a> <?php } ?>

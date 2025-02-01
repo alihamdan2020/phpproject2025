@@ -4,16 +4,23 @@
         <form action="signin.php" method="post">
             <h3>log in</h3>
             <div class="inputsGroup">
-                <label for="username">User Name</label>
                 <input type="text" 
                 name="user" 
+                placeholder=" "
+                autocomplete="off"
                 id="username" 
                 value= <?php if(isset($_SESSION['user'])) echo $_SESSION['user'] ?>>
+                <label for="username">User Name</label>
             </div>
-
+            
             <div class="inputsGroup">
+                <input type="password" 
+                name="pass" 
+                id="password"
+                placeholder=" "
+                autocomplete="off">
+                
                 <label for="password">Password</label>
-                <input type="text" name="pass" id="password">
             </div>
             
             

@@ -18,11 +18,12 @@ $sql = "SELECT categoryName, products.*, CompanyName, UnitPrice * UnitsOnOrder A
         INNER JOIN categories ON products.CategoryID = categories.CategoryID
         INNER JOIN suppliers ON products.supplierID = suppliers.supplierID";
 
-if ($catId !== null && $catId!=0) {
+if ($catId !== null && $catId != 0) {
     $sql .= " WHERE products.CategoryID = " . $catId;
 }
-if($catId==0)
-{   $sql .= " WHERE 1=1 ";}
+if ($catId == 0) {
+    $sql .= " WHERE 1=1 ";
+}
 
 $sql .= " LIMIT " . $counter . ", 10";
 
@@ -30,12 +31,13 @@ $result = mysqli_query($con, $sql);
 
 // SQL query to get the count of products for pagination
 $sqlCount = "SELECT COUNT(*) AS totalProducts FROM products";
-if ($catId !== null && $catId!=0) {
+if ($catId !== null && $catId != 0) {
     $sqlCount .= " WHERE CategoryID = " . $catId;
 }
 
-if ($catId == 0) 
-{$sqlCount .= " WHERE 1 = 1 ";}
+if ($catId == 0) {
+    $sqlCount .= " WHERE 1 = 1 ";
+}
 
 $countResult = mysqli_query($con, $sqlCount);
 $rowCount = mysqli_fetch_assoc($countResult);
@@ -55,15 +57,30 @@ $perPage = ceil($totalProducts / 10);
     <div class="container">
         <div class="cardHolder">
             <?php while ($r = mysqli_fetch_assoc($result)) { ?>
+
                 <div class="card">
+                    
+                 <?php if(empty($r["cover"]) || !file_exists("images/".$r["cover"])) { ?>
+                        <img src="https://fakeimg.pl/1000x1000" alt="pic1">
+                        <?php } else {?>
+                            <img src="images/<?php echo $r["cover"]?>" alt="pic1">
+
+                        <?php 
+                        
+                        }?>
+
+
+
+
                     <p style="background-color: rgb(0,60,120)">
-                        <a href="#">Product # <?php echo $r['ProductID']; ?></a>
+                        <a href="productdetail.php?productId=<?php echo $r['ProductID']; ?>">Product # <?php echo $r['ProductID']; ?></a>
                     </p>
                     <p><?php echo $r['ProductName']; ?></p>
                     <p><?php echo $r['UnitPrice']; ?></p>
                     <p><?php echo $r['categoryName']; ?></p>
                     <p><?php echo $r['CompanyName']; ?></p>
                     <p><?php echo number_format($r['total'], 2) . "<span style='color:red'> $</span> "; ?></p>
+                    <p><button>add to card</button></p>
                 </div>
             <?php } ?>
         </div>
@@ -71,7 +88,8 @@ $perPage = ceil($totalProducts / 10);
             <ul class="pages">
                 <?php for ($i = 0; $i < $perPage; $i++) { ?>
                     <li>
-                        <a href="products.php?num=<?php echo $i; if ($catId !== null) echo '&catId=' . $catId; ?>">
+                        <a href="products.php?num=<?php echo $i;
+                                                    if ($catId !== null) echo '&catId=' . $catId; ?>">
                             <?php echo $i + 1; ?>
                         </a>
                     </li>
@@ -80,4 +98,5 @@ $perPage = ceil($totalProducts / 10);
         </div>
     </div>
 </body>
+
 </html>
