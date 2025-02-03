@@ -10,20 +10,22 @@ $r=mysqli_query($con,$sql);
         <form action="createaccount.php" method="post">
             <h3>sign up</h3>
             <div class="inputsGroup">
-                <label for="username">User Name</label>
                 <input type="text" 
                 name="user" 
+                placeholder=" "
                 id="username" 
                 value= <?php if(isset($_SESSION['user'])) echo $_SESSION['user'] ?>>
+                <label for="username">User Name</label>
             </div>
 
             <div class="inputsGroup">
+                <input type="text" name="pass" id="password" placeholder=" ">
+                
                 <label for="password">Password</label>
-                <input type="text" name="pass" id="password">
             </div>
 
             <div class="inputsGroup">
-                <label for="country">Country</label>
+                <label for="country" class="a">Country</label>
                 <select name="country">
                     <?php while($row=mysqli_fetch_assoc($r)) {?>
                         <option value=<?php echo  $row['RegionID']?>><?php echo $row['RegionDescription']?></option>

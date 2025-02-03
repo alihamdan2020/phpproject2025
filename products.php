@@ -55,6 +55,7 @@ $perPage = ceil($totalProducts / 10);
         <?php } ?>
     </select>
     <div class="container">
+        
         <div class="cardHolder">
             <?php while ($r = mysqli_fetch_assoc($result)) { ?>
 
@@ -72,30 +73,31 @@ $perPage = ceil($totalProducts / 10);
 
 
 
-                    <p style="background-color: rgb(0,60,120)">
-                        <a href="productdetail.php?productId=<?php echo $r['ProductID']; ?>">Product # <?php echo $r['ProductID']; ?></a>
+                    <p style="background-color: rgb(0,60,120); text-align:center">
+                        <a href="productdetail.php?productId=<?php echo $r['ProductID']; ?>">Show details # <?php echo $r['ProductID']; ?></a>
                     </p>
                     <p><?php echo $r['ProductName']; ?></p>
                     <p><?php echo $r['UnitPrice']; ?></p>
                     <p><?php echo $r['categoryName']; ?></p>
                     <p><?php echo $r['CompanyName']; ?></p>
                     <p><?php echo number_format($r['total'], 2) . "<span style='color:red'> $</span> "; ?></p>
-                    <p><button>add to card</button></p>
+                   
                 </div>
             <?php } ?>
-        </div>
-        <div style="display:grid;place-items:center">
-            <ul class="pages">
-                <?php for ($i = 0; $i < $perPage; $i++) { ?>
-                    <li>
-                        <a href="products.php?num=<?php echo $i;
-                                                    if ($catId !== null) echo '&catId=' . $catId; ?>">
-                            <?php echo $i + 1; ?>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
+        
+        </form>
+    </div>
+    <div style="display:grid;place-items:center">
+        <ul class="pages">
+            <?php for ($i = 0; $i < $perPage; $i++) { ?>
+                <li>
+                    <a href="products.php?num=<?php echo $i;
+                                                if ($catId !== null) echo '&catId=' . $catId; ?>">
+                        <?php echo $i + 1; ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
     </div>
 </body>
 

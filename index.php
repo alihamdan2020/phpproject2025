@@ -28,7 +28,7 @@ $products = mysqli_fetch_assoc($result);
             style="padding: 5px;font-size:20px;outline:0"
             value=<?php if(isset($_SESSION['txt'])) echo $_SESSION['txt'] ?>>
     </form>
-    
+    <h1 style="text-transform: capitalize;text-align:center">to make a purchase you must log in first</h1>
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
         <?php if(!isset($_SESSION['loggedin'])) {?>
         <caption>list of products</caption>

@@ -22,6 +22,11 @@ else{
     if(mysqli_query($con,$sql))
     {
     $_SESSION['loggedin']=0;
+    $sql="select * from users where userName='$user'";
+    $result=mysqli_query($con,$sql);
+    $row=mysqli_fetch_assoc($result);
+    $_SESSION['userId']=$row['userId'];
+
     header('location:index.php');
     }
 }

@@ -9,8 +9,11 @@ $sql="select * from users where userName = '$user' and password = '$hashed'";
 
 $result=mysqli_query($con,$sql);
 $count=mysqli_num_rows($result);
+
 if ($count===1){
-    $_SESSION['loggedin']=mysqli_fetch_assoc($result)['userName'];
+    $row=mysqli_fetch_assoc($result);
+    $_SESSION['loggedin']=$row['userName'];
+    $_SESSION['userId']=$row['userId'];
     header('location:products.php');
     die();
 }
